@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>List of all files</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript">
+        
+        $(document).ready(function() {
+            $.ajax({
+                type:"POST",
+                url:"http://127.0.0.1:4000/list",
+                success: function(resp) {
+                    var list = resp;
+                    getList(list);
+                
+                },
+                error: function(xhr,status) {
+                    $("#list").html(status);
+                }
+            });
+        });
+        function sendpost(filename) {
+            $.ajax({
+                type:"GET",
+                url:"http://127.0.0.1:4000/videoplayer",
+                data: {'filename':filename},
+                error: function(xhr,status) {
+                    $(document).html(status);
+                }
+            });
+        }
+        function getList(list) {
+            list.forEach(element => {
+                    
+                    document.getElementById('listordered').innerHTML+= `<li><a id=${element} onclick=sendpost('${element}')>` + element + "</a></li>";
+            });
+        
+        }
+            
+            </script>
+    </head>
+    <body>
+        <div class="list" id="list">Data here <ol id="listordered"></ol></div>
+    </body>
+</html>

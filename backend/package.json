@@ -1,0 +1,16 @@
+{
+  "name": "videostreamingapplication",
+  "version": "1.0.0",
+  "description": "A video streamer which is portable and streams videos over LAN.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Sachmo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}
