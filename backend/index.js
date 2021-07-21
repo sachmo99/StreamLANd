@@ -9,14 +9,16 @@ app.get("/",function(req,res) {
     res.sendFile(__dirname + "/homepage.html")
 
 });
-// app.get("/list",function(req,res) {
-//     res.setHeader("Access-Control-Allow-Origin","*");
-//     //send list of video directories in the parent directory
-//     res.sendFile(__dirname+"/listpage.html")
+app.post("/",function(req,res) {
+    res.setHeader("Access-Control-Allow-Origin","*");
+    //send list of video directories in the parent directory
+    console.log(req);
+    res.status(200).send(1);
     
-// });
+});
 app.get("/list",function(req,res) {
     res.setHeader("Access-Control-Allow-Origin","*");
+    //console.log("")
     //post request from listpage.html to get the filenames.
     fs.readdir(path.join(path.dirname(__dirname),'videos'),function(err,files) {
         if(err) {
@@ -37,8 +39,8 @@ app.get("/list",function(req,res) {
 
 });
 
-app.get("/videoplayer",function(req,res) {
-    var filename = req.query.filename;
+app.get("/videoplayer/:videourl",function(req,res) {
+    var filename = req.params.videourl;
     console.log(filename);
     res.setHeader("Access-Control-Allow-Origin","*");
     res.sendFile(__dirname + "/index.html")
