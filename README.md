@@ -6,9 +6,9 @@
 ***At present the application is tested and verified as working on mp4 videos which are to be stored in Videos folder of the package.This project is still under development.***
 
 **Steps to Use**:
-To use the application, store the mp4 videos you want to stream in the videos folder.
-Then, start the frontend and backend servers by giving commands: ```cd frontend/frontend_videoserver && npm start``` and ```cd backend && node index.js```
-You can also use nodemon instead of node while starting the backend server.
+- To use the application, store the mp4 videos you want to stream in the videos folder.
+- Then, start the frontend and backend servers by giving commands: ```cd frontend/frontend_videoserver && npm start``` and ```cd backend && node index.js```
+- You can also use nodemon instead of node while starting the backend server.
 ########################
 As mentioned the project is under development and I am still learning while building this project. So if you have any suggestions on improving the performance of the project (aside from a few ideas that I already have), you are most welcome to ping me on my mail. 
 
