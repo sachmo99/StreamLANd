@@ -3,9 +3,13 @@
 
 ## This is the official readme of this project titled "StreamLANd"(tentative title).
 
-**Aim**: The aim of this project is to create a local streaming platform for the multimedia (movies) content on your network device to everyone on your network. It will help you to stream movies stored on your PC on any device like mobile, tablets etc.. without downloading or transferring it. The application is very much similar to many popular video OTT services like Netflix, Prime Video etc.. but works only on the content you have locally.
+**Aim**: The aim of this project is to create a local streaming platform for the multimedia (movies) content on your network device to everyone on your network. It will help you to stream movies stored on your PC on any device like mobile, tablets etc.. without downloading or transferring it. The application is very much similar to many popular video OTT services like Netflix, Prime Video etc.. but works only on the content you have locally.\\
+
 ***At present the application is tested and verified as working on mp4 videos which are to be stored in Videos folder of the package.This project is still under development.***
 *In case of complaints or clarifications, please reach out to me at tsaimouli1999@gmail.com*
+
+---
+
 **Steps to Use**:
 - To use the application, store the mp4 videos you want to stream in the videos folder.
 - Then, start the frontend and backend servers by giving commands: ```cd frontend/frontend_videoserver && npm start``` and ```cd backend && node index.js```
