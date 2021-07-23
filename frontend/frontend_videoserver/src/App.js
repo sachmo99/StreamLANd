@@ -5,6 +5,8 @@ import ReactPlayer from 'react-player';
 import {Jumbotron, Button, Rows, Columns, Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Videoplayer from './videoplayer';
+import Welcome from './Layouts/welcome';
+import Footer from './Layouts/footer';
 class App extends React.Component {
   state = {
     listDemo: [],
@@ -52,25 +54,16 @@ class App extends React.Component {
     render(){
       return(
           <div className="root">
-            <Jumbotron>
-              <h1>StreamLANd</h1>
-              <Button variant="primary" onClick={this.demoFunction}> Go to list</Button>
-              </Jumbotron>
+            <Welcome/>
               <div>
-              {this.state.listDemo.length > 0 && (
-                        <Container>
-                        {this.state.listDemo.map((element) => (
-                            <Button variant="warning" onClick={this.callVideo} value={element}>{element}</Button>
-                        ))}
-                    
-                    </Container> )}
+  
                     </div>
                     {this.state.visible? 
                     <div>
                       <Videoplayer videourl={this.state.videourlprop}/>
 
                     </div> :null}
-            
+            <Footer />
           </div>
       );
     }
