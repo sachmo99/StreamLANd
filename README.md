@@ -18,9 +18,13 @@
 As mentioned the project is under development and I am still learning while building this project. So if you have any suggestions on improving the performance of the project (aside from a few ideas that I already have), you are most welcome to ping me on my mail. 
 
 ---
-**ChangeLog**
+**ReleaseLog**
 *Date:21/07/2021*
-*Version: v1.0.0*
+*Version: v1.0.0* - working
 - Added the basic implementation with mp4 videos.
 - Built a frontend with reactjs and backend with node server.
-- Built a basic UI around the server. Tested the application on LAN with a single video.
+- Built a basic UI around the server. Tested the application on LAN with a single video.  
+
+*Date:22/07/2021*
+*Version: v1.1.0* - working
+- Improved UI on React

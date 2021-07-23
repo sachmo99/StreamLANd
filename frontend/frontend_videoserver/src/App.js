@@ -4,7 +4,7 @@ import React from 'react';
 import ReactPlayer from 'react-player';
 import {Jumbotron, Button, Rows, Columns, Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Videoplayer from './videoplayer';
+import Videoplayer from './Layouts/videoplayer';
 import Welcome from './Layouts/welcome';
 import Footer from './Layouts/footer';
 class App extends React.Component {
@@ -55,14 +55,7 @@ class App extends React.Component {
       return(
           <div className="root">
             <Welcome/>
-              <div>
-  
-                    </div>
-                    {this.state.visible? 
-                    <div>
-                      <Videoplayer videourl={this.state.videourlprop}/>
-
-                    </div> :null}
+                    
             <Footer />
           </div>
       );

@@ -21,7 +21,7 @@ class Videoplayer extends React.Component  {
             
             <ReactVideo
                 src={this.state.videoUrl}
-                poster="https://www.example.com/poster.png"
+                poster={process.env.PUBLIC_URL + "/pictures/streamland.png"}
                 primaryColor="red"
                 // other props
             />

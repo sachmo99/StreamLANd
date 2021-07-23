@@ -25,7 +25,7 @@ const MovieCard = ({url}) => {
     return(
        <Card className={classes.root} key={url}>
            <CardActionArea>
-               <CardMedia className={classes.media} image={process.env.PUBLIC_URL+"/pictures/pacificdream.png"} title={url} />
+               <CardMedia className={classes.media} image={process.env.PUBLIC_URL+"/pictures/streamland.png"} title={url} />
                <CardContent>
                    <Typography gutterBottom variant="h5" component="h2">
                        {url}

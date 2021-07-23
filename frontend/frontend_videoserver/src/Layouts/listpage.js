@@ -3,6 +3,7 @@ import { motion } from  'framer-motion';
 import { withStyles } from '@material-ui/core/styles';
 import MovieCard from './cardlayout.jsx';
 import { Grid } from '@material-ui/core';
+import Videoplayer from './videoplayer.js';
 const useStyles = (themes) => ({
     root: {
         color: '#000',
@@ -33,6 +34,11 @@ const useStyles = (themes) => ({
             justifyContent: 'center',
             width: '100%',
             textAlign:'center',
+    },
+    videoplayer:{
+        width: '100%',
+        padding: themes.spacing(2),
+        height: '100vh'
     }
 
 });
@@ -41,6 +47,8 @@ class ListPage extends React.Component {
     state = {
         serverUrl: '',
         listDemo: [],
+        visible: false,
+        videourlprop: '',
     }
     constructor(props) {
         super(props);
@@ -70,6 +78,19 @@ class ListPage extends React.Component {
           
         
       }
+      loadVideo = (name) => {
+        console.log("clicked on " + name);
+        // window.location.href = "http://192.168.1.112:4000/video/" + e.target.value;
+        this.setState({videourlprop: this.state.serverUrl+':4000/video/'+ name});
+        this.setState({visible: true});
+      }
+      handlecards = (e) => {
+          // console.log(e.target.title);
+          var title = e.target.title;
+          if(title.length != 0) {
+            this.loadVideo(title);
+          }
+      }
 
     render() {
        
@@ -77,7 +98,7 @@ class ListPage extends React.Component {
         return(
             <div className={classes.root} id="listpage">
                 
-                <div className={classes.list}>
+                <div className={classes.list} onClick={this.handlecards}>
                 <h3 className={classes.boxtitle}>List of Movies on Your Drive</h3>
                     <Grid container spacing={2} direction="row" justify="flex-start" alignItems="flex-start">
                     {this.state.listDemo.map((element) => (
@@ -85,6 +106,10 @@ class ListPage extends React.Component {
                         ))}
                     </Grid>
                 </div>
+                {this.state.visible? 
+                    <div className={classes.videoplayer}>
+                      <Videoplayer videourl={this.state.videourlprop}/>
+                    </div> :null}
             </div>
         );
     }
