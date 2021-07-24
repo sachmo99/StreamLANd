@@ -6,7 +6,7 @@
 **Aim**: The aim of this project is to create a local streaming platform for the multimedia (movies) content on your network device to everyone on your network. It will help you to stream movies stored on your PC on any device like mobile, tablets etc.. without downloading or transferring it. The application is very much similar to many popular video OTT services like Netflix, Prime Video etc.. but works only on the content you have locally.
 
 ***At present the application is tested and verified as working on mp4 videos which are to be stored in Videos folder of the package.This project is still under development.***
-*In case of complaints or clarifications, please reach out to me at tsaimouli1999@gmail.com*
+*In case of complaints or clarifications, please reach out to me at sachmoadi2001@gmail.com*
 
 ---
 
@@ -32,4 +32,5 @@ As mentioned the project is under development and I am still learning while buil
 *Date: 23/07/2021*
 *Version: v1.1.1* - working
 - Improved Documentation and added contribution guidelines.
+- Added code of conduct for contributors and participants.
 
