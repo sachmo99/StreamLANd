@@ -1,5 +1,5 @@
 # StreamLANd
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![CodeFactor](https://www.codefactor.io/repository/github/sachmo99/streamland/badge)](https://www.codefactor.io/repository/github/sachmo99/streamland)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![CodeFactor](https://www.codefactor.io/repository/github/sachmo99/streamland/badge)](https://www.codefactor.io/repository/github/sachmo99/streamland) [![CodeQL](https://github.com/sachmo99/StreamLANd/actions/workflows/codeql-analysis.yml/badge.svg?branch=sachmo-dev)](https://github.com/sachmo99/StreamLANd/actions/workflows/codeql-analysis.yml)
 
 ## This is the official readme of this project titled "StreamLANd"(tentative title).
 
