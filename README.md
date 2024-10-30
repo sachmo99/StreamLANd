@@ -16,6 +16,7 @@
 - You can also use nodemon instead of node while starting the backend server.
 - For people preferring to use ```yarn``` for package handling, feel free to do so but do not make pull requests to update docs. I use npm almost everywhere.
 - Create a videos folder parallel to the backend and frontend where you store all your video files (currently supported mp4).
+---
 ########################
 As mentioned the project is under development and I am still learning while building this project. So if you have any suggestions on improving the performance of the project (aside from a few ideas that I already have), you are most welcome to ping me on my mail. 
 
