@@ -15,6 +15,7 @@
 - Then, start the frontend and backend servers by giving commands: ```cd frontend/frontend_videoserver && npm install && npm start``` and ```cd backend && npm install && node index.js```
 - You can also use nodemon instead of node while starting the backend server.
 - For people preferring to use ```yarn``` for package handling, feel free to do so but do not make pull requests to update docs. I use npm almost everywhere.
+- Create a videos folder parallel to the backend and frontend where you store all your video files (currently supported mp4).
 ########################
 As mentioned the project is under development and I am still learning while building this project. So if you have any suggestions on improving the performance of the project (aside from a few ideas that I already have), you are most welcome to ping me on my mail. 
 
@@ -34,4 +35,10 @@ As mentioned the project is under development and I am still learning while buil
 *Version: v1.1.1* - working
 - Improved Documentation and added contribution guidelines.
 - Added code of conduct for contributors and participants.
+
+*Date: 30/10/2024*
+*Version: v2*
+- Implemented HLS streaming with ReactPlayer.
+- Implemented a draft version of HLS encoder built on top of Shaka Package manager [Shaka Github](https://github.com/shaka-project/shaka-packager) which can be run independently to convert any mp4 video into HLS streamable setup inside ${PROJECT_ROOT}/videos folder.
+- Improved backend into MVC design and splitted it into controllers, services and utils for more precise separation over endpoints.
 

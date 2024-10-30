@@ -5,8 +5,9 @@ import ReactPlayer from 'react-player';
 import {Jumbotron, Button, Rows, Columns, Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Videoplayer from './Layouts/videoplayer';
-import Welcome from './Layouts/welcome';
-import Footer from './Layouts/footer';
+import Welcome from './components/homepage';
+import Footer from './components/footer';
+
 class App extends React.Component {
   state = {
     listDemo: [],
@@ -26,7 +27,6 @@ class App extends React.Component {
         console.log(temparray);
         var server = temparray[1];
         this.setState({serverUrl:"http:"+ server});
-
     }
     demoFunction = (e) => {
       e.preventDefault();
@@ -35,7 +35,8 @@ class App extends React.Component {
     };
     fetch(this.state.serverUrl+":4000/list", requestOptions)
         .then((response) => response.json())
-        .then(data => {console.log(data);this.setState({listDemo: data})}); 
+        .then(data => {console.log(data);
+          this.setState({listDemo: data.map(ele => ele.movieName)})}); 
         
       
     }
@@ -53,9 +54,9 @@ class App extends React.Component {
     
     render(){
       return(
+        
           <div className="root">
-            <Welcome/>
-                    
+            <Welcome/>    
             <Footer />
           </div>
       );

@@ -6,7 +6,7 @@ import { motion,MotionConfig } from 'framer-motion';
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
-        position: 'fixed',
+        position: 'relative',
         bottom:'0',
         width: '100%',
         justifyContent: 'center',
@@ -20,7 +20,7 @@ export default function Footer() {
     const classes  = useStyles();
     return (
         <div className={classes.root}>
-            <div ><b>(c)Streamland 2021</b></div>
+            <div ><b>&copy;Streamland 2024</b></div>
         </div>
     );
 }

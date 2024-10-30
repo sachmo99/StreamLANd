@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { makeStyles } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
 import Header from './header';
-import ListPage from '../components/listpage';
+import ListPage from './listpage';
 const variants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
@@ -28,7 +28,6 @@ function Welcome() {
             <div className= {classes.welcome} >
                 <CssBaseline/>
                 <Header/>
-                <ListPage />
             </div>
         );
     }

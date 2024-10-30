@@ -52,7 +52,9 @@ const variants = {
 
   const scrollToComponent = (e) => {
       e.preventDefault();
-      window.document.getElementById("listpage").scrollIntoView({ behavior: 'smooth' });
+      window.location.href = "/list";
+      //window.document.getElementById("listpage").scrollIntoView({ behavior: 'smooth' });
+      
   }
 
 export default function Header() {

@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from  'framer-motion';
 import { withStyles } from '@material-ui/core/styles';
-import MovieCard from './cardlayout.jsx';
+import MovieCard from '../Layouts/cardlayout.jsx';
 import { Grid } from '@material-ui/core';
-import Videoplayer from './videoplayer.js';
+import Videoplayer from '../Layouts/videoplayer.js';
+import { Navigate } from 'react-router';
 const useStyles = (themes) => ({
     root: {
         color: '#000',
         height: 'auto',
-        width: '100%',
+        width: '100vw',
         display: 'block',
         justifyContent: 'center',
         alignItems: 'center',
@@ -19,8 +20,8 @@ const useStyles = (themes) => ({
         display: 'flex-box',
         background: 'white',
         borderRadius: '25px',
-        width: '80%',
-        height: '100%',
+        width: '95%',
+        height: '100vh',
         margin: '0 auto',
         boxShadow: '5px 5px #888888',
         flexGrow: '1',
@@ -33,6 +34,7 @@ const useStyles = (themes) => ({
             fontFamily: 'Otomanopee One',
             justifyContent: 'center',
             width: '100%',
+            padding : '20px',
             textAlign:'center',
     },
     videoplayer:{
@@ -52,8 +54,9 @@ class ListPage extends React.Component {
     }
     constructor(props) {
         super(props);
-
+        //const navigate = useNavigate();
     }
+    
     componentDidMount() {
         var temp = window.location.href;
         var temparray = temp.split(":",3);
@@ -65,7 +68,7 @@ class ListPage extends React.Component {
         };
         fetch("http:"+server+":4000/list", requestOptions)
             .then((response) => response.json())
-            .then(data => {console.log(data);this.setState({listDemo: data})}); 
+            .then(data => {console.log(data);this.setState({listDemo: data.map(ele => ele.movieName)})}); 
     }
     demoFunction = (e) => {
         e.preventDefault();
@@ -81,8 +84,10 @@ class ListPage extends React.Component {
       loadVideo = (name) => {
         console.log("clicked on " + name);
         // window.location.href = "http://192.168.1.112:4000/video/" + e.target.value;
-        this.setState({videourlprop: this.state.serverUrl+':4000/video/'+ name});
-        this.setState({visible: true});
+        this.setState({ videourlprop: '/video/'+ name });
+        window.location.href = "/video/" + name;
+        // this.setState({visible: true});
+        
       }
       handlecards = (e) => {
           // console.log(e.target.title);
@@ -93,6 +98,9 @@ class ListPage extends React.Component {
       }
 
     render() {
+            if(this.state.videourlprop.length > 0 ) {
+                return <Navigate to={this.videourlprop} replace/>;
+            }
        
         const { classes } = this.props; 
         return(
@@ -100,16 +108,14 @@ class ListPage extends React.Component {
                 
                 <div className={classes.list} onClick={this.handlecards}>
                 <h3 className={classes.boxtitle}>List of Movies on Your Drive</h3>
-                    <Grid container spacing={2} direction="row" justify="flex-start" alignItems="flex-start">
+                    <Grid container spacing={2} direction="row" justifyContent="flex-start" alignItems="flex-start" style={{ padding: '10px'}}>
                     {this.state.listDemo.map((element) => (
-                            <MovieCard url={element}></MovieCard>
+                        <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={element.id} >
+                            <MovieCard url={element} onClick={()=> this.loadVideo}></MovieCard>
+                        </Grid>
                         ))}
                     </Grid>
                 </div>
-                {this.state.visible? 
-                    <div className={classes.videoplayer}>
-                      <Videoplayer videourl={this.state.videourlprop}/>
-                    </div> :null}
             </div>
         );
     }

@@ -23,7 +23,7 @@ const useStyle = makeStyles((theme) => ({
 const MovieCard = ({url}) => {
     const classes = useStyle();
     return(
-       <Card className={classes.root} key={url}>
+       <Card style={{ padding: '5px'}} className={classes.root} key={url}>
            <CardActionArea>
                <CardMedia className={classes.media} image={process.env.PUBLIC_URL+"/pictures/streamland.png"} title={url} />
                <CardContent>
