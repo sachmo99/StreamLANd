@@ -1,0 +1,11 @@
+#MainArea {
+    /*background-image: url('../../public/pictures/pacificdream.png'); */
+    background-color: #efe8f8;
+}
+
+.sectionTitle {
+    color: #170d21;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: x-large;
+    font-weight: bolder;
+}

@@ -20,15 +20,15 @@ const useStyle = makeStyles((theme) => ({
         height: 140,
     }
 }));
-const MovieCard = ({url}) => {
+const MovieCard = ({title}) => {
     const classes = useStyle();
     return(
-       <Card style={{ padding: '5px'}} className={classes.root} key={url}>
+       <Card style={{ padding: '2%'}} className={classes.root} key={title}>
            <CardActionArea>
-               <CardMedia className={classes.media} image={process.env.PUBLIC_URL+"/pictures/streamland.png"} title={url} />
+               <CardMedia className={classes.media} image={process.env.PUBLIC_URL+"/pictures/streamland.png"} title={title} />
                <CardContent>
                    <Typography gutterBottom variant="h5" component="h2">
-                       {url}
+                       {title}
                    </Typography>
                </CardContent>
            </CardActionArea>

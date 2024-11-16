@@ -4,6 +4,24 @@ const fs = require('fs');
 const path = require('path');
 const { exec } = require('child_process');
 
+const os = require('os');
+
+function getHostIpAddress() {
+  const networkInterfaces = os.networkInterfaces();
+  for (const interfaceName in networkInterfaces) {
+    const addresses = networkInterfaces[interfaceName];
+    for (const address of addresses) {
+      // Skip over internal (i.e., 127.0.0.1) and non-IPv4 addresses
+      if (!address.internal && address.family === 'IPv4') {
+        return address.address;
+      }
+    }
+  }
+  return '127.0.0.1'; // Fallback to localhost if no external IP found
+}
+
+console.log(`Host IP Address: ${getHostIpAddress()}`);
+
 // Configuration
 const scanFolderPath = 'C:\\Projects\\StreamLANd\\videos'; // Folder to scan for new videos
 const scanInterval = 6000; // Scan every 60 seconds (adjust as needed)
@@ -25,7 +43,11 @@ function convertToHLS(videoPath) {
     fs.mkdirSync(outputFolder);
   }
   console.log(videoPath,outputFolder)
-  const shakaCommand =`shaka input="${videoPath}",stream=video,output=${outputFolder}/video_output.mp4,init_segment=${outputFolder}/init_video.mp4,segment_template=${outputFolder}/video_$Number$.m4s input="${videoPath}",stream=audio,output=${outputFolder}/audio_output.mp4,init_segment=${outputFolder}/init_audio.mp4,segment_template=${outputFolder}/audio_$Number$.m4s --hls_master_playlist_output=${outputFolder}/master.m3u8 --segment_duration=10 --hls_base_url=http://localhost:4000/player/`;
+  let contentNameRaw = outputFolder.split("\\")
+  let contentName = contentNameRaw[contentNameRaw.length - 1]
+  console.log(contentName);
+  let currentIPAddress = getHostIpAddress();
+  const shakaCommand =`shaka input="${videoPath}",stream=video,output=${outputFolder}/video_output.mp4,init_segment=${outputFolder}/init_video.mp4,segment_template=${outputFolder}/video_$Number$.m4s input="${videoPath}",stream=audio,output=${outputFolder}/audio_output.mp4,init_segment=${outputFolder}/init_audio.mp4,segment_template=${outputFolder}/audio_$Number$.m4s --hls_master_playlist_output=${outputFolder}/master.m3u8 --segment_duration=10 --hls_base_url=http://${currentIPAddress}:4000/videos/${contentName}/`;
 
   console.log(`Converting ${videoPath} to HLS format...`);
   exec(shakaCommand, (error, stdout, stderr) => {

@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './output.css';
+//import './index.css';
 import App from './App';
-import ListPage from './components/listpage';
+//import ListPage from './components/listpage';
 import reportWebVitals from './reportWebVitals';
-import VideoPage from './components/videopage';
+//import VideoPage from './components/videopage';
+import VideoPage from './components/videoPageComponent';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -16,11 +18,8 @@ const router = createBrowserRouter([
     errorElement: <App/>
   },
   {
-    path: "/list",
-    element: <ListPage/>
-  },
-  {path:"/video/:videoId/:segmentId?",
-     element:<VideoPage />
+    path: "video/:videoId/:segmentId?",
+    element: <VideoPage />
   }
 ]);
 ReactDOM.render(
