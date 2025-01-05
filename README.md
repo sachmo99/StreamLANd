@@ -11,6 +11,7 @@
 ---
 
 **Steps to Use**:
+- Download the Shaka package manager from ([https://github.com/shaka-project/shaka-packager](https://github.com/shaka-project/shaka-packager)) (must for the HLS encoder to function..)
 - To use the application, store the mp4 videos you want to stream in the videos folder.
 - Then, start the frontend and backend servers by giving commands: ```cd frontend/frontend_videoserver && npm install && npm start``` and ```cd backend && npm install && node index.js```
 - **UPDATE: you can also start all three services at once using concurrently npm package by entering npm run start from the project root folder.** 
