@@ -23,7 +23,7 @@ function getHostIpAddress() {
 console.log(`Host IP Address: ${getHostIpAddress()}`);
 
 // Configuration
-const scanFolderPath = 'C:\\Projects\\StreamLANd\\videos'; // Folder to scan for new videos
+const scanFolderPath = path.join(__dirname,'videos'); // Folder to scan for new videos
 const scanInterval = 6000; // Scan every 60 seconds (adjust as needed)
 const mediaExtensions = ['.mp4']; // Supported video file formats
 

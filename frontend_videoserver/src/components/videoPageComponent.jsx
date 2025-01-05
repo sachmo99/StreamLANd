@@ -20,7 +20,7 @@ function VideoPage({ videoIdFromProps }) {
       try {
         let url;
         if (!segmentId) {
-          url = `${serverUrl}/videos/${videoIdFromProps || videoId}/master.m3u8`;
+          url = `${serverUrl}/videos/${videoIdFromProps || videoId}`;
         } else {
           url = `${serverUrl}/videos/${videoIdFromProps || videoId}/${segmentId}`;
         }

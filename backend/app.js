@@ -13,7 +13,7 @@ app.use('/videos', express.static(path.join(__dirname, '../videos')));
 
 // Routes for serving HLS manifest and segments
 app.get('/list',homeController.getListOfMovies);
-app.get('/videos/:videoId/:segment', videoController.getFile);
+app.get('/videos/:videoId/:segmentId', videoController.getFile);
 app.get('/videos/:videoId', videoController.getManifest);
 
 

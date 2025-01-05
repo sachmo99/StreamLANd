@@ -1,10 +1,12 @@
 // src/controllers/homeController.js
 
 const homeService = require("../services/homeService");
-
+const path = require('path');
 exports.getListOfMovies = async (req,res) => {
     try {
-        const listOfMovies = await homeService.getFoldersWithMediaFiles("C:\\Projects\\StreamLANd\\videos");
+        console.log(__dirname,path.join(__dirname,".."));
+        const listOfMovies = await homeService.getFoldersWithMediaFiles(path.join(__dirname,"../videos"));
+        console.log(listOfMovies);
         listMoviesWithThumbnails = listOfMovies.map( movie => {
             return{
                 movieName : movie,

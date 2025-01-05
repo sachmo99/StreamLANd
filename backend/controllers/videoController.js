@@ -1,6 +1,6 @@
 // src/controllers/videoController.js
 const videoService = require('../services/videoService');
-
+const path = require("path");
 exports.getManifest = async (req, res) => {
     try {
         const { videoId } = req.params;
@@ -18,9 +18,9 @@ exports.getManifest = async (req, res) => {
 exports.getFile = async (req,res) => {
     try{
         console.log("inside getFile");
-        const {videoId, fileName } = req.params;
-        console.log(`Fetching segment for video: ${videoId}, segment: ${fileName}`);
-        const fileToShare = path.join(__dirname, '../../videos', videoId, segment+".m4s");
+        const {videoId, segmentId } = req.params;
+        console.log(`Fetching segment for video: ${videoId}, segment: ${segmentId}`);
+        const fileToShare = path.join(__dirname, '../videos', videoId, segmentId);
         res.sendFile(fileToShare);
     }
     catch (error) {
