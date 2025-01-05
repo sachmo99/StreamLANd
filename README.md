@@ -41,7 +41,7 @@ As mentioned the project is under development and I am still learning while buil
 *Date: 30/10/2024*
 *Version: v2*
 - Implemented HLS streaming with ReactPlayer.
-- Implemented a draft version of HLS encoder built on top of Shaka Package manager [Shaka Github](https://github.com/shaka-project/shaka-packager) which can be run independently to convert any mp4 video into HLS streamable setup inside ${PROJECT_ROOT}/videos folder.
+- Implemented a draft version of HLS encoder built on top of Shaka Package manager [Shaka Github](https://github.com/shaka-project/shaka-packager) which can be run independently to convert any mp4 video into HLS streamable setup inside ${PROJECT_ROOT}/backend/videos folder.
 - Improved backend into MVC design and splitted it into controllers, services and utils for more precise separation over endpoints.
 
 *Date: 06/01/2025*
