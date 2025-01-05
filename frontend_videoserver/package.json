@@ -1,0 +1,72 @@
+{
+  "name": "frontend_videoserver",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/material": "^6.1.7",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.8.3",
+    "bootstrap": "^4.6.0",
+    "framer-motion": "^4.1.17",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.5.2",
+    "react-dom": "^17.0.1",
+    "react-player": "^2.9.0",
+    "react-router": "^6.27.0",
+    "react-router-dom": "^6.27.0",
+    "react-scripts": "^5.0.1",
+    "react-scroll": "^1.8.3",
+    "web-vitals": "^1.1.1"
+  },
+  "scripts": {
+    "start-dev": "react-scripts start --host 0.0.0.0",
+    "start": "npm run build && serve -s build",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "plugin:storybook/recommended",
+      "plugin:storybook/recommended",
+      "plugin:storybook/recommended",
+      "plugin:storybook/recommended"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.2",
+    "@storybook/addon-essentials": "^8.4.4",
+    "@storybook/addon-interactions": "^8.4.4",
+    "@storybook/addon-onboarding": "^8.4.4",
+    "@storybook/blocks": "^8.4.4",
+    "@storybook/preset-create-react-app": "^8.4.4",
+    "@storybook/react": "^8.4.4",
+    "@storybook/react-webpack5": "^8.4.4",
+    "@storybook/test": "^8.4.4",
+    "eslint-plugin-storybook": "^0.11.0",
+    "prop-types": "^15.8.1",
+    "reactjs-media": "^1.5.1",
+    "storybook": "^8.4.4",
+    "tailwindcss": "^3.4.15",
+    "webpack": "^5.96.1"
+  }
+}

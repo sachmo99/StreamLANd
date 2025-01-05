@@ -1,6 +1,6 @@
 const express  = require('express')
 const path = require('path');
-var videoplayback = require(__dirname + '/videoplayback.js')
+var videoplayback = require(__dirname + '/videoFinder.js')
 const app = express();
 const fs = require('fs');
 app.get("/",function(req,res) {
@@ -20,21 +20,8 @@ app.get("/list",function(req,res) {
     res.setHeader("Access-Control-Allow-Origin","*");
     //console.log("")
     //post request from listpage.html to get the filenames.
-    fs.readdir(path.join(path.dirname(__dirname),'videos'),function(err,files) {
-        if(err) {
-            console.log("error reading files");
-            res.status(500).send("Unable to read files from directory.");
-            
-        }else{
-            var filenames = [];
-            files.forEach(function(file) {
-                filenames.push(file.toString());
-            });
-            console.log(filenames.toString());
-            res.status(200).send(filenames);
-        }
-        
-    });
+    const foldersWithMediaFiles = videoplayback.getFoldersWithMediaFiles(path.join(path.dirname(__dirname),'videos'));
+    res.send(foldersWithMediaFiles)
 
 
 });
