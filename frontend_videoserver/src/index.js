@@ -7,24 +7,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 //import VideoPage from './components/videopage';
 import VideoPage from './components/videoPageComponent';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App/>,
-    errorElement: <App/>
-  },
-  {
-    path: "video/:videoId/:segmentId?",
-    element: <VideoPage />
-  }
-]);
+import { HashRouter as Router,Route,Routes } from 'react-router-dom';
+
 ReactDOM.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+        <Router>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/video/:videoId/:segmentId?" element={<VideoPage />} />
+        <Route path="*" element={<div><h1>Not Found!</h1><p>Go to to <a href="/">HOME</a></p></div>} />
+      </Routes>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

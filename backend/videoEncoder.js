@@ -43,12 +43,12 @@ function convertToHLS(videoPath) {
     fs.mkdirSync(outputFolder);
   }
   console.log(videoPath,outputFolder)
-  let contentNameRaw = outputFolder.split("\\")
+  let contentNameRaw = outputFolder.split("/")
   let contentName = contentNameRaw[contentNameRaw.length - 1]
   console.log(contentName);
   let currentIPAddress = getHostIpAddress();
-  const shakaCommand =`shaka input="${videoPath}",stream=video,output=${outputFolder}/video_output.mp4,init_segment=${outputFolder}/init_video.mp4,segment_template=${outputFolder}/video_$Number$.m4s input="${videoPath}",stream=audio,output=${outputFolder}/audio_output.mp4,init_segment=${outputFolder}/init_audio.mp4,segment_template=${outputFolder}/audio_$Number$.m4s --hls_master_playlist_output=${outputFolder}/master.m3u8 --segment_duration=10 --hls_base_url=http://${currentIPAddress}:4000/videos/${contentName}/`;
-
+  const shakaCommand =`shaka input="${videoPath}",stream=video,output=${outputFolder}/video_output.mp4,init_segment=${outputFolder}/init_video.mp4,segment_template='${outputFolder}/video_$Number$.m4s' input="${videoPath}",stream=audio,output=${outputFolder}/audio_output.mp4,init_segment=${outputFolder}/init_audio.mp4,segment_template='${outputFolder}/audio_$Number$.m4s' --hls_master_playlist_output=${outputFolder}/master.m3u8 --segment_duration=10 --hls_base_url=http://${currentIPAddress}:4000/videos/${contentName}/`;
+  console.log(shakaCommand);
   console.log(`Converting ${videoPath} to HLS format...`);
   exec(shakaCommand, (error, stdout, stderr) => {
     if (error) {

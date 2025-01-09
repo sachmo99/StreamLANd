@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-dev": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "start-encoder": "node videoEncoder.js",
+    "start-backend" : "concurrently \"npm run start\" \"npm run start-encoder\""
   },
   "author": "Sachmo",
   "license": "ISC",
@@ -15,5 +17,8 @@
     "express": "^4.21.1",
     "nodemon": "^2.0.22",
     "redis": "^4.7.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   }
 }

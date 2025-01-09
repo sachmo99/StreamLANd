@@ -9,7 +9,7 @@ const path = require('path');
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
-app.use('/videos', express.static(path.join(__dirname, '../videos')));
+app.use('/videos', express.static(path.join(__dirname, './videos')));
 
 // Routes for serving HLS manifest and segments
 app.get('/list',homeController.getListOfMovies);
