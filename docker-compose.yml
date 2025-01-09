@@ -1,0 +1,26 @@
+version: '3.9'
+services:
+  frontend:
+    build:
+      context: ./frontend_videoserver
+      dockerfile: Dockerfile
+    container_name: streamland_frontend
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: streamland_backend
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./videos:/app/videos
+    environment:
+      NODE_ENV: production
+
+volumes:
+  videos:
+    driver: local
