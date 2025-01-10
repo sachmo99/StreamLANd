@@ -14,7 +14,8 @@
 - Download the Shaka package manager from ([https://github.com/shaka-project/shaka-packager](https://github.com/shaka-project/shaka-packager)) (must for the HLS encoder to function..)
 - To use the application, store the mp4 videos you want to stream in the videos folder.
 - Then, start the frontend and backend servers by giving commands: ```cd frontend/frontend_videoserver && npm install && npm start``` and ```cd backend && npm install && node index.js```
-- **UPDATE: you can also start all three services at once using concurrently npm package by entering npm run start from the project root folder.** 
+- **UPDATE (09/01/2025): Now, you can run the entire container services using docker compose
+- **UPDATE (06/01/2025): you can also start all three services at once using concurrently npm package by entering npm run start from the project root folder.** 
 - You can also use nodemon instead of node while starting the backend server.
 - For people preferring to use ```yarn``` for package handling, feel free to do so but do not make pull requests to update docs. I use npm almost everywhere.
 ---
@@ -48,4 +49,10 @@ As mentioned the project is under development and I am still learning while buil
 *Version: v2-alpha*
 - Modified application run procedure with concurrently package.
 - Bug fixes on folder paths for video content rendering
+
+*Date: 09/01/2025*
+*Version: v2-beta*
+- Modified application run procedure with concurrently package.
+- Bug fixes on folder paths for video content rendering
+- Added docker-compose configuration
 
